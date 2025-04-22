@@ -19,6 +19,6 @@ void fragment() {
 	ROUGHNESS = texture(roughness_sampler, UV).y * base_roughness;
 	NORMAL_MAP = texture(normal_sampler, UV).xyz;
 	EMISSION = mix(ALBEDO, rim_light_color.rgb, rim_light_color.a) * clamp(smoothstep(0.55, 0.6, fresnel(1.0, NORMAL, VIEW)) * NORMAL.y, 0.0, 1.0) * rim_light_intensity;
-	
+
 	EMISSION += emission_color.rgb * emission_intensity;
 }
